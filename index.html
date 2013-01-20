@@ -30,8 +30,66 @@
 
                             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./fixing-exception-in-django-menu.html">Fixing exception in django-menu</a></h1> 
+                    <h1 class="entry-title"><a href="./password-cases-and-test-fixes-on-pyramid_simpleauth.html">Password cases and test fixes on pyramid_simpleauth</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-11-30T12:00:00">
+                Fri 30 November 2012
+        </abbr>
+
+                <address class="vcard author">
+                By <a class="url fn" href="./author/james.html">James</a>
+        </address>
+        <p>In <a href="./category/github-contributions.html">github-contributions</a>. </p>
+<p>tags: <a href="./tag/github.html">github</a><a href="./tag/python.html">python</a><a href="./tag/pyramid.html">pyramid</a></p>
+</footer><!-- /.post-info --><p>At <a class="reference external" href="http://quib.ly">quib.ly</a> we're using Pyramid at the centre of a Python framework. Providing user functionality is the <a class="reference external" href="https://github.com/thruflo/pyramid_simpleauth">pyramid_simpleauth</a> library.</p>
+<p>While writing itegration tests before we put the site live, I found that my test users we not able to authenticate with their testing passwords (usually just a simple string like 'Password'). Digging inside the simpleauth library, I found some fixes necessary to how cases are handled by the lib - plus also fixed some doctests while I was at it.</p>
+<p>These have all been merged in now and the library rolled up a version.</p>
+<ul class="simple">
+<li>GitHub Issue: <a class="reference external" href="https://github.com/thruflo/pyramid_simpleauth/issues/5">Any upper case characters in passwords break auth</a></li>
+<li>GitHub Pull Request: <cite>Password cases possible fix &lt;https://github.com/thruflo/pyramid_simpleauth/pull/7&gt;_</cite></li>
+</ul>
+                </article>
+                            </aside><!-- /#featured -->
+                            <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+                                                
+
+                 
+                        <li><article class="hentry">    
+                <header>
+                    <h1><a href="./django-mailchimp-compatability-with-v13-api.html" rel="bookmark"
+                           title="Permalink to Django-mailchimp compatability with v1.3 API">Django-mailchimp compatability with v1.3 API</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
+        <abbr class="published" title="2012-09-25T07:14:00">
+                Tue 25 September 2012
+        </abbr>
+
+                <address class="vcard author">
+                By <a class="url fn" href="./author/james.html">James</a>
+        </address>
+        <p>In <a href="./category/github-contributions.html">github-contributions</a>. </p>
+<p>tags: <a href="./tag/github.html">github</a><a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/mailchimp.html">mailchimp</a></p>
+</footer><!-- /.post-info -->                <p>For a fublo project with <a class="reference external" href="http://www.neuxpower.com/">Neuxpower</a>, we had to communicate with <a class="reference external" href="http://apidocs.mailchimp.com/">Mailchimp via their API</a>. On Django one of the best libraries for this is <a class="reference external" href="https://github.com/piquadrat/django-mailchimp">django-mailchimp</a>.</p>
+<p>However, in its previous state <strong>django-mailchimp</strong> wasn't able to specify a <tt class="docutils literal">send_welcome</tt> parameter which lets <strong>Mailchimp</strong> know whether it should send out a ...</p>
+                <a class="readmore" href="./django-mailchimp-compatability-with-v13-api.html">read more</a>
+                                </div><!-- /.entry-content -->
+            </article></li>
+                            
+
+                 
+                        <li><article class="hentry">    
+                <header>
+                    <h1><a href="./fixing-exception-in-django-menu.html" rel="bookmark"
+                           title="Permalink to Fixing exception in django-menu">Fixing exception in django-menu</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-05-05T19:40:00">
                 Sat 05 May 2012
         </abbr>
@@ -41,15 +99,13 @@
         </address>
         <p>In <a href="./category/github-contributions.html">github-contributions</a>. </p>
 <p>tags: <a href="./tag/github.html">github</a><a href="./tag/python.html">python</a><a href="./tag/django.html">django</a></p>
-</footer><!-- /.post-info --><p><a class="reference external" href="https://github.com/rossp/django-menu/">django-menu</a> is a nice simple library for building very simple menus. However, when a site is loaded for the first time, the menu structure was not configured and so it was throwing a <tt class="docutils literal">DoesNotExist</tt> Exception.</p>
-<p>This tiny pull request simply wrapped the call to the menu in a <tt class="docutils literal">try</tt>/<tt class="docutils literal">except</tt> so that new sites using <strong>django-menu</strong> won't fall over on first load.</p>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/rossp/django-menu/pull/5">GitHub Issue</a></li>
-</ul>
-                </article>
-                                                                </aside><!-- /#featured -->
-                                                </ol><!-- /#posts-list -->
-                        </section><!-- /#content -->
+</footer><!-- /.post-info -->                <p><a class="reference external" href="https://github.com/rossp/django-menu/">django-menu</a> is a nice simple library for building very simple menus. However, when a site is loaded for the first time, the menu structure was not configured and so it was throwing a <tt class="docutils literal">DoesNotExist</tt> Exception.</p>
+<p>This tiny pull request simply wrapped the call to the menu in a <tt class="docutils literal">try</tt>/<tt class="docutils literal">except ...</tt></p>
+                <a class="readmore" href="./fixing-exception-in-django-menu.html">read more</a>
+                                </div><!-- /.entry-content -->
+            </article></li>
+                            </ol><!-- /#posts-list -->
+                                                    </section><!-- /#content -->
                     <section id="extras" class="body">
                                 <div class="social">
                         <h2>social</h2>

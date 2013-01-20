@@ -30,8 +30,41 @@
 
                             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="../fixing-exception-in-django-menu.html">Fixing exception in django-menu</a></h1> 
+                    <h1 class="entry-title"><a href="../django-mailchimp-compatability-with-v13-api.html">Django-mailchimp compatability with v1.3 API</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-09-25T07:14:00">
+                Tue 25 September 2012
+        </abbr>
+
+                <address class="vcard author">
+                By <a class="url fn" href="../author/james.html">James</a>
+        </address>
+        <p>In <a href="../category/github-contributions.html">github-contributions</a>. </p>
+<p>tags: <a href="../tag/github.html">github</a><a href="../tag/python.html">python</a><a href="../tag/django.html">django</a><a href="../tag/mailchimp.html">mailchimp</a></p>
+</footer><!-- /.post-info --><p>For a fublo project with <a class="reference external" href="http://www.neuxpower.com/">Neuxpower</a>, we had to communicate with <a class="reference external" href="http://apidocs.mailchimp.com/">Mailchimp via their API</a>. On Django one of the best libraries for this is <a class="reference external" href="https://github.com/piquadrat/django-mailchimp">django-mailchimp</a>.</p>
+<p>However, in its previous state <strong>django-mailchimp</strong> wasn't able to specify a <tt class="docutils literal">send_welcome</tt> parameter which lets <strong>Mailchimp</strong> know whether it should send out a list welcome message when a new user subscribes. For the project, we were managing the signup explicitly with Neuxpower's code, so no welcome message was required and the default for Mailchimp was <tt class="docutils literal">True</tt> for sending meaning that Neuxpower's new customers would get hit with a double welcome message... Not desirable.</p>
+<p>This small change is now merged in with the library, which has rolled up to a 'v1.3' status as there is no backward compatibilty.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/piquadrat/django-mailchimp/issues/5">GitHub Issue</a></li>
+<li><a class="reference external" href="https://github.com/piquadrat/django-mailchimp/pull/6">GitHub Pull Request</a></li>
+</ul>
+                </article>
+                            </aside><!-- /#featured -->
+                            <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+                                                
+
+                 
+                        <li><article class="hentry">    
+                <header>
+                    <h1><a href="../fixing-exception-in-django-menu.html" rel="bookmark"
+                           title="Permalink to Fixing exception in django-menu">Fixing exception in django-menu</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-05-05T19:40:00">
                 Sat 05 May 2012
         </abbr>
@@ -41,15 +74,38 @@
         </address>
         <p>In <a href="../category/github-contributions.html">github-contributions</a>. </p>
 <p>tags: <a href="../tag/github.html">github</a><a href="../tag/python.html">python</a><a href="../tag/django.html">django</a></p>
-</footer><!-- /.post-info --><p><a class="reference external" href="https://github.com/rossp/django-menu/">django-menu</a> is a nice simple library for building very simple menus. However, when a site is loaded for the first time, the menu structure was not configured and so it was throwing a <tt class="docutils literal">DoesNotExist</tt> Exception.</p>
-<p>This tiny pull request simply wrapped the call to the menu in a <tt class="docutils literal">try</tt>/<tt class="docutils literal">except</tt> so that new sites using <strong>django-menu</strong> won't fall over on first load.</p>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/rossp/django-menu/pull/5">GitHub Issue</a></li>
-</ul>
-                </article>
-                                                                </aside><!-- /#featured -->
-                                                </ol><!-- /#posts-list -->
-                        </section><!-- /#content -->
+</footer><!-- /.post-info -->                <p><a class="reference external" href="https://github.com/rossp/django-menu/">django-menu</a> is a nice simple library for building very simple menus. However, when a site is loaded for the first time, the menu structure was not configured and so it was throwing a <tt class="docutils literal">DoesNotExist</tt> Exception.</p>
+<p>This tiny pull request simply wrapped the call to the menu in a <tt class="docutils literal">try</tt>/<tt class="docutils literal">except ...</tt></p>
+                <a class="readmore" href="../fixing-exception-in-django-menu.html">read more</a>
+                                </div><!-- /.entry-content -->
+            </article></li>
+                            
+
+                 
+                        <li><article class="hentry">    
+                <header>
+                    <h1><a href="../password-cases-and-test-fixes-on-pyramid_simpleauth.html" rel="bookmark"
+                           title="Permalink to Password cases and test fixes on pyramid_simpleauth">Password cases and test fixes on pyramid_simpleauth</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
+        <abbr class="published" title="2012-11-30T12:00:00">
+                Fri 30 November 2012
+        </abbr>
+
+                <address class="vcard author">
+                By <a class="url fn" href="../author/james.html">James</a>
+        </address>
+        <p>In <a href="../category/github-contributions.html">github-contributions</a>. </p>
+<p>tags: <a href="../tag/github.html">github</a><a href="../tag/python.html">python</a><a href="../tag/pyramid.html">pyramid</a></p>
+</footer><!-- /.post-info -->                <p>At <a class="reference external" href="http://quib.ly">quib.ly</a> we're using Pyramid at the centre of a Python framework. Providing user functionality is the <a class="reference external" href="https://github.com/thruflo/pyramid_simpleauth">pyramid_simpleauth</a> library.</p>
+<p>While writing itegration tests before we put the site live, I found that my test users we not able to authenticate with their testing passwords (usually just a simple ...</p>
+                <a class="readmore" href="../password-cases-and-test-fixes-on-pyramid_simpleauth.html">read more</a>
+                                </div><!-- /.entry-content -->
+            </article></li>
+                            </ol><!-- /#posts-list -->
+                                                    </section><!-- /#content -->
                     <section id="extras" class="body">
                                 <div class="social">
                         <h2>social</h2>
