@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>James Cooke Dot Info - pyramid</title>
+        <title>James Cooke Dot Info - ZZZ Misc...</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../theme/css/main.css" type="text/css" />
                 <link href="http://jamescooke.info/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="James Cooke Dot Info Atom Feed" />
@@ -24,7 +24,7 @@
                 <nav><ul>
                                                                                                     <li ><a href="../category/code.html">Code</a></li>
                                     <li ><a href="../category/github-contributions.html">GitHub Contributions</a></li>
-                                    <li ><a href="../category/zzz-misc.html">ZZZ Misc...</a></li>
+                                    <li class="active"><a href="../category/zzz-misc.html">ZZZ Misc...</a></li>
                                 </ul></nav>
         </header><!-- /#banner -->
                 
@@ -32,24 +32,22 @@
 
                             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="../password-cases-and-test-fixes-on-pyramid_simpleauth.html">Password cases and test fixes on&nbsp;pyramid_simpleauth</a></h1> 
+                    <h1 class="entry-title"><a href="../setting-up-this-homepage-with-pelican.html">Setting up this homepage with&nbsp;Pelican</a></h1> 
                     <footer class="post-info">
-        <abbr class="published" title="2012-11-30T12:00:00">
-                Fri 30 November 2012
+        <abbr class="published" title="2013-01-20T17:25:00">
+                Sun 20 January 2013
         </abbr>
 
                 <address class="vcard author">
                 By <a class="url fn" href="../author/james.html">James</a>
         </address>
-        <p>In <a href="../category/github-contributions.html">GitHub Contributions</a>. </p>
-<p>tags: <a href="../tag/github.html">github</a><a href="../tag/python.html">python</a><a href="../tag/pyramid.html">pyramid</a></p>
-</footer><!-- /.post-info --><p>At <a class="reference external" href="http://quib.ly">quib.ly</a> we&#8217;re using Pyramid at the centre of a Python framework. Providing user functionality is the <a class="reference external" href="https://github.com/thruflo/pyramid_simpleauth">pyramid_simpleauth</a>&nbsp;library.</p>
-<p>While writing itegration tests before we put the site live, I found that my test users we not able to authenticate with their testing passwords (usually just a simple string like &#8216;Password&#8217;). Digging inside the simpleauth library, I found some fixes necessary to how cases are handled by the lib - plus also fixed some doctests while I was at&nbsp;it.</p>
-<p>These have all been merged in now and the library rolled up a&nbsp;version.</p>
-<ul class="simple">
-<li>GitHub Issue: <a class="reference external" href="https://github.com/thruflo/pyramid_simpleauth/issues/5">Any upper case characters in passwords break&nbsp;auth</a></li>
-<li>GitHub Pull Request: <cite>Password cases possible fix &lt;https://github.com/thruflo/pyramid_simpleauth/pull/7&gt;_</cite></li>
-</ul>
+        <p>In <a href="../category/zzz-misc.html">ZZZ Misc...</a>. </p>
+<p>tags: <a href="../tag/github.html">github</a><a href="../tag/python.html">python</a><a href="../tag/pelican.html">pelican</a></p>
+</footer><!-- /.post-info --><p>This page has been through a lot in the last ten&nbsp;years.</p>
+<p>Since starting work at <a class="reference external" href="http://quib.ly">quib.ly</a>, I&#8217;ve had a lot more time to code and it&#8217;s exactly what I wanted, hopefully it&#8217;ll continue. The result of that is that I&#8217;ve got more to write about&#8230; The code that I develop at work, fixes I make to open source libraries and general things I learn, primarily about <strong>Python</strong> and web - hopefully all valuable and worth&nbsp;sharing.</p>
+<p>I&#8217;m experimenting with <a class="reference external" href="https://github.com/getpelican/pelican">Pelican</a> - a static blog generator written in <strong>Python</strong>. It&#8217;s excellent and noticably easier than <strong>Jekyll</strong> - probably because I&#8217;m much more clued up in <strong>Python</strong> than <strong>Ruby</strong>. I&#8217;m lazy, so I&#8217;m hosting the outputted static files in the <tt class="docutils literal"><span class="pre">gh-pages</span></tt> branch of the <a class="reference external" href="https://github.com/jamescooke/blog/">blog&#8217;s repository</a> to take advantage of <a class="reference external" href="http://pages.github.com/">GitHub Pages&#8217; free hosting features</a> - thanks <strong>GitHub</strong>!</p>
+<p>In addition, I found <a class="reference external" href="http://www.davidfischer.name/2012/12/quick-note-pelican-github/">this article by David Fischer</a> very helpful. Particularly the suggestion of adding the <tt class="docutils literal"><span class="caps">CNAME</span></tt> copy command to the <tt class="docutils literal">Makefile</tt> to get <strong>GitHub Pages</strong> one configuration requirement and <tt class="docutils literal"><span class="pre">gph-import</span></tt> working nicely together. Plus David pointed out that <strong>Pelican</strong> already has a <tt class="docutils literal">github</tt> target in the <tt class="docutils literal">Makefile</tt> which I hadn&#8217;t noticed and is now what I use to push articles&nbsp;live.</p>
+<p>All in all - great and&nbsp;simple.</p>
                 </article>
                                                                 </aside><!-- /#featured -->
                                                 </ol><!-- /#posts-list -->

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Fixing exception in django-menu</title>
+        <title>Got the Stack Overflow tumbleweed badge for Mako filters question</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
                 <link href="http://jamescooke.info/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="James Cooke Dot Info Atom Feed" />
@@ -22,8 +22,8 @@
         <header id="banner" class="body">
                 <h1><a href="./">James Cooke Dot Info </a></h1>
                 <nav><ul>
-                                                                                                    <li ><a href="./category/code.html">Code</a></li>
-                                    <li class="active"><a href="./category/github-contributions.html">GitHub Contributions</a></li>
+                                                                                                    <li class="active"><a href="./category/code.html">Code</a></li>
+                                    <li ><a href="./category/github-contributions.html">GitHub Contributions</a></li>
                                     <li ><a href="./category/zzz-misc.html">ZZZ Misc...</a></li>
                                 </ul></nav>
         </header><!-- /#banner -->
@@ -31,26 +31,27 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="./fixing-exception-in-django-menu.html" rel="bookmark"
-           title="Permalink to Fixing exception in django-menu">Fixing exception in&nbsp;django-menu</a></h1>
+        <a href="./got-the-stack-overflow-tumbleweed-badge-for-mako-filters-question.html" rel="bookmark"
+           title="Permalink to Got the Stack Overflow tumbleweed badge for Mako filters question">Got the Stack Overflow tumbleweed badge for Mako filters&nbsp;question</a></h1>
           </header>
 
     <div class="entry-content">
       <footer class="post-info">
-        <abbr class="published" title="2012-05-05T19:40:00">
-                Sat 05 May 2012
+        <abbr class="published" title="2013-01-20T16:40:00">
+                Sun 20 January 2013
         </abbr>
 
                 <address class="vcard author">
                 By <a class="url fn" href="./author/james.html">James</a>
         </address>
-        <p>In <a href="./category/github-contributions.html">GitHub Contributions</a>. </p>
-<p>tags: <a href="./tag/github.html">github</a><a href="./tag/python.html">python</a><a href="./tag/django.html">django</a></p>
-</footer><!-- /.post-info -->      <p><a class="reference external" href="https://github.com/rossp/django-menu/">django-menu</a> is a nice simple library for building very simple menus. However, when a site is loaded for the first time, the menu structure was not configured and so it was throwing a <tt class="docutils literal">DoesNotExist</tt> Exception.</p>
-<p>This tiny pull request simply wrapped the call to the menu in a <tt class="docutils literal">try</tt>/<tt class="docutils literal">except</tt> so that new sites using <strong>django-menu</strong> won&#8217;t fall over on first&nbsp;load.</p>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/rossp/django-menu/pull/5">GitHub&nbsp;Issue</a></li>
-</ul>
+        <p>In <a href="./category/code.html">Code</a>. </p>
+<p>tags: <a href="./tag/mako.html">mako</a><a href="./tag/python.html">python</a></p>
+</footer><!-- /.post-info -->      <p>Last week I posted a question on Stack Overflow - &#8220;<a class="reference external" href="http://stackoverflow.com/questions/14215591/mako-template-filter-ordering">Mako template filter ordering</a>&#8221; - this week it earned the <a class="reference external" href="http://stackoverflow.com/badges/63/tumbleweed">Tumbleweed badge</a>.</p>
+<p>It&#8217;s always a little concerning when libraries and toolkits you&#8217;re using in a project have forums and message boards that are a little too quiet - is there a bad smell? Is there something bad I don&#8217;t know about this tech? Even worse is when you look around those quiet forums (or tags in Stack Overflow) you find comments like this about the library you&#8217;re being asked to&nbsp;use:</p>
+<img alt="|filename|/images/mako.png" src="./static/images/mako.png" />
+<p>You should listen to a <a class="reference external" href="http://stackoverflow.com/questions/10870379/is-there-an-equivalent-to-django-template-filters-in-mako">Stack Overflow moderator who has 93K points</a> at time of writing&nbsp;right?</p>
+<p>Meanwhile&#8230; I haven&#8217;t found the reason for the template filter ordering being strange - and I still think that the <tt class="docutils literal">h</tt> filter is putting itself last in the <strong>mako</strong> render order, but now I&#8217;ve got a work around, I&#8217;m going back to post&nbsp;it.</p>
+<p>Maybe 10 more people will see it before Easter - it might even help&nbsp;someone.</p>
 
     </div><!-- /.entry-content -->
     
