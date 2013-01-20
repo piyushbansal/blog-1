@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>James Cooke Dot Info - django</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="../theme/css/main.css" type="text/css" />
+                <link href="http://jamescooke.info/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="James Cooke Dot Info Atom Feed" />
+                
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="../css/ie.css"/>
+                <script src="../js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="../css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="../">James Cooke Dot Info </a></h1>
+                <nav><ul>
+                                                                                                    <li ><a href="../category/github-contributions.html">github-contributions</a></li>
+                                </ul></nav>
+        </header><!-- /#banner -->
+                
+            
+
+                            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="../fixing-exception-in-django-menu.html">Fixing exception in django-menu</a></h1> 
+                    <footer class="post-info">
+        <abbr class="published" title="2012-05-05T19:40:00">
+                Sat 05 May 2012
+        </abbr>
+
+                <address class="vcard author">
+                By <a class="url fn" href="../author/james.html">James</a>
+        </address>
+        <p>In <a href="../category/github-contributions.html">github-contributions</a>. </p>
+<p>tags: <a href="../tag/github.html">github</a><a href="../tag/python.html">python</a><a href="../tag/django.html">django</a></p>
+</footer><!-- /.post-info --><p><a class="reference external" href="https://github.com/rossp/django-menu/">django-menu</a> is a nice simple library for building very simple menus. However, when a site is loaded for the first time, the menu structure was not configured and so it was throwing a <tt class="docutils literal">DoesNotExist</tt> Exception.</p>
+<p>This tiny pull request simply wrapped the call to the menu in a <tt class="docutils literal">try</tt>/<tt class="docutils literal">except</tt> so that new sites using <strong>django-menu</strong> won't fall over on first load.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/rossp/django-menu/pull/5">GitHub Issue</a></li>
+</ul>
+                </article>
+                                                                </aside><!-- /#featured -->
+                                                </ol><!-- /#posts-list -->
+                        </section><!-- /#content -->
+                    <section id="extras" class="body">
+                                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://jamescooke.info/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+                            
+                                                    <li><a href="https://twitter.com/jamesfublo">Twitter</a></li>
+                                                    <li><a href="https://github.com/jamescooke">GitHub</a></li>
+                                                    <li><a href="https://www.linkedin.com/in/jamescooke">LinkedIn</a></li>
+                                                    <li><a href="http://stackoverflow.com/users/1286705/jamesc">Stack Overflow</a></li>
+                                                </ul>
+                </div><!-- /.social -->
+                </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
