@@ -49,6 +49,41 @@
     <section id="posts">
                     <article class='listed'>
             <h1 class="title">
+                <a href="../migrating-from-django-14-to-15-lessons-learned.html" rel='bookmark'>Migrating from Django 1.4 to 1.5 - Lessons&nbsp;learned</a>
+            </h1>
+            <div class="article-content"> <p>From <a class="reference external" href="https://twitter.com/ryankask/">Ryan Kaskel</a>&#8216;s talk at <a class="reference external" href="http://www.meetup.com/The-London-Django-Meetup-Group/">Django London</a> in November last year, I guessed that upgrading the <a class="reference external" href="https://github.com/jamescooke/actionguide">Action Guide code</a> from Django 1.4 to 1.5 might have created some issues with users (<a class="reference external" href="https://docs.djangoproject.com/en/dev/releases/1.5/#configurable-user-model">user models have changed in Django 1.5 to allow more customisation</a>).</p>
+<p>However, as it turns out, the main problems were with settings and urls, the users were fine. My main take-aways&nbsp;were:</p>
+<div class="section" id="url-formats-have-changed-now-need-quotes">
+<h2>Url formats have changed - now need&nbsp;quotes</h2>
+<p>The Django team had already updated the <cite>url</cite> tag to accept the path parameter as a string, but the old syntax was still allowed. 1.4 allowed both types of syntax, the team having provided <cite>{% load url from future %}</cite> for those that wanted to update their templates to the new&nbsp;syntax.</p>
+<p>Here&#8217;s the warning from the <a class="reference external" href="https://docs.djangoproject.com/en/1.5/ref/templates/builtins/#std:templatetag-url"><span class="caps">URL</span> tag documentation</a>.</p>
+<img alt="|filename|/images/url-warning.png" src="../static/images/url-warning.png" />
+<p>This was a reasonably easy change to implement - some search and replace and all <cite>url</cite> tags can be easily hunted down and&nbsp;changed.</p>
+</div>
+<div class="section" id="read-up-on-the-settings-no-allowed-hosts-makes-500s">
+<h2>Read up on the settings - no ALLOWED_HOSTS makes&nbsp;500s</h2>
+<p>This was the real&nbsp;killer.</p>
+<p>There is a <a class="reference external" href="https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts">new ALLOWED_HOSTS settings in 1.5</a> required to get Django and running in non-debug&nbsp;mode.</p>
+<p>Worst thing about the implementation of this new setting is that I couldn&#8217;t get a single bit of debugging output it through <cite>wsgi</cite> on WebFaction - just a 500 error on every page load when I took the site out of debug&nbsp;mode.</p>
+<p>I was so confused that I posted <a class="reference external" href="http://stackoverflow.com/questions/15605185/django-1-5-url-deprecation-warning-causes-500-error-in-webfaction-apache-wsgi/15626247">this question on StackOverflow</a>, thinking the problem was <cite>url</cite> warnings being shown as errors and halting the <cite>wsgi</cite>. In the end, just adding <cite>ALLOWED_HOSTS</cite> fixed everything up&nbsp;great.</p>
+<p>My main problem was that I scanned the docs, tested the migration on localhost in dev mode, and just expected everything to deploy. With Captain Hindsight, I&#8217;d have RTFMed much harder before deploying - a lesson for the&nbsp;future.</p>
+<p>Apart from that, everything works really well. <strong>Have&nbsp;fun!</strong></p>
+</div>
+ </div>
+            <div class="abbr published">Posted <a href='../migrating-from-django-14-to-15-lessons-learned.html' title='2013-03-29T19:00:00'>Fri 29 March 2013</a></div>
+        </article>
+            <article class='listed'>
+            <h1 class="title">
+                <a href="../pelican-svbtle-theme-tweaks.html" rel='bookmark'>Pelican Svbtle theme&nbsp;tweaks</a>
+            </h1>
+            <div class="article-content"> <p>My first experiments with <a class="reference external" href="http://blog.getpelican.com/">Pelican</a> to run this blog have been good - it&#8217;s a great way to publish static pages quickly and I find it much easier to manage than&nbsp;Octopress.</p>
+<p>It&#8217;s built on a version of the <a class="reference external" href="https://github.com/wting/pelican-svbtle">Pelican-svbtle theme</a>. There were some problems with the theme in its current form, so I&#8217;ve forked <a class="reference external" href="https://github.com/CNBorn/pelican-svbtle">CNBorn&#8217;s already adjusted version</a> and cleaned out some of the <span class="caps">LESS</span> and templates - <a class="reference external" href="https://github.com/jamescooke/pelican-svbtle">my fork is on GitHub</a>.</p>
+<p>However, this theme isn&#8217;t going to stay. <a class="reference external" href="http://www.thesocialspaces.co.uk/">Paul</a> has been working on some flat <span class="caps">HTML</span> based on Bootstrap to make a new clean theme. Once that&#8217;s stable, I&#8217;ll plug in some Pelican / Jinja2 tags and hopefully this site will have a new clean theme&nbsp;soon.</p>
+ </div>
+            <div class="abbr published">Posted <a href='../pelican-svbtle-theme-tweaks.html' title='2013-02-21T19:40:00'>Thu 21 February 2013</a></div>
+        </article>
+            <article class='listed'>
+            <h1 class="title">
                 <a href="../got-the-stack-overflow-tumbleweed-badge-for-mako-filters-question.html" rel='bookmark'>Got the Stack Overflow tumbleweed badge for Mako filters&nbsp;question</a>
             </h1>
             <div class="article-content"> <p>Last week I posted a question on Stack Overflow - &#8220;<a class="reference external" href="http://stackoverflow.com/questions/14215591/mako-template-filter-ordering">Mako template filter ordering</a>&#8221; - this week it earned the <a class="reference external" href="http://stackoverflow.com/badges/63/tumbleweed">Tumbleweed badge</a>.</p>
