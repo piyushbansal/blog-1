@@ -1,3 +1,9 @@
+body {
+    font-size: 18px;
+    line-height: 26px;
+    font-family: 'Droid Sans', sans-serif;
+}
+
 h1, h2, h3, h4, h5, h6 {
     color: inherit;
     font-family: 'Droid Serif',serif;
@@ -21,8 +27,8 @@ h2.space-above {
     margin-top:1em;
 }
 
-p {
-    font-family: 'Droid Sans', sans-serif;
+li {
+    line-height: 24px;
 }
 
 cite {
@@ -46,19 +52,12 @@ nav ul {
         margin: 30px 0 0 0;
         font-family: 'Droid Serif', serif;
 }
+
 nav li {
         padding: 0px;
         margin: 0 0 10px 0;
 }
-div.fake {
-        bottom: 0;
-        left: 0;
-        position: fixed;
-        top: 0;
-        width: 32.755%;
-        background: #f6f6f6;
-        z-index: -1;
-}
+
 #profileimg {
         border-radius: 50px;
         -webkit-border-radius: 50px;
@@ -67,6 +66,7 @@ div.fake {
         width: 100px;
         height: 100px;
 }
+
 .blogtitle {
         font-size: 18px;
 }
