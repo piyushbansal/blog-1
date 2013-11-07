@@ -1,5 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>James Cooke</title><link href="http://jamescooke.info/" rel="alternate"></link><link href="http://jamescooke.info/feeds/all-en.atom.xml" rel="self"></link><id>http://jamescooke.info/</id><updated>2013-07-14T20:00:00+01:00</updated><entry><title>Calculating your day rate for spare time freelance work</title><link href="http://jamescooke.info/calculating-your-day-rate-for-spare-time-freelance-work.html" rel="alternate"></link><updated>2013-07-14T20:00:00+01:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2013-07-14:calculating-your-day-rate-for-spare-time-freelance-work.html</id><summary type="html">&lt;p&gt;So you want to do some freelance work and you&amp;#8217;re not sure how much to charge your new client. The most important thing is to not underestimate your value - it frustrates me so much when I hear of a talented coder selling themselves&amp;nbsp;short.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>James Cooke</title><link href="http://jamescooke.info/" rel="alternate"></link><link href="http://jamescooke.info/feeds/all-en.atom.xml" rel="self"></link><id>http://jamescooke.info/</id><updated>2013-11-01T20:00:00+00:00</updated><entry><title>vi-nature everywhere - lightning talk</title><link href="http://jamescooke.info/vi-nature-everywhere-lightning-talk.html" rel="alternate"></link><updated>2013-11-01T20:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2013-11-01:vi-nature-everywhere-lightning-talk.html</id><summary type="html">&lt;p&gt;vi-nature, the &amp;#8216;language&amp;#8217; of &lt;cite&gt;vim&lt;/cite&gt;. It&amp;#8217;s the reason that &lt;cite&gt;vim&lt;/cite&gt; works so well
+for me. However, it does take some learning, and even after many months of use,
+I&amp;#8217;d say I&amp;#8217;ve only just scratched the&amp;nbsp;surface.&lt;/p&gt;
+&lt;p&gt;So if we&amp;#8217;re investing so much time and energy in learning this language, then
+why not apply it to more tasks than just editing&amp;nbsp;files?&lt;/p&gt;
+&lt;p&gt;In this five minute lighting talk I gave at &lt;a class="reference external" href="http://www.meetup.com/Vim-London/"&gt;Vim London&lt;/a&gt; this week, I delved into some of the benefits
+and issues with using vi-nature for more than just&amp;nbsp;editing.&lt;/p&gt;
+&lt;iframe src="//player.vimeo.com/video/78173248" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;&lt;p&gt;The feedback after the talk was great - here are my&amp;nbsp;take-aways:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Check out &lt;a class="reference external" href="http://www.uzbl.org/"&gt;uzbl&lt;/a&gt; - it provides an interface layer
+that can be programmed to different keybindings. Thanks&amp;nbsp;Nestor.&lt;/li&gt;
+&lt;li&gt;Check out &lt;a class="reference external" href="http://awesome.naquadah.org/"&gt;Awesome Window Manager&lt;/a&gt; because it&amp;#8217;s completely operational without mouse. Thanks&amp;nbsp;Nestor.&lt;/li&gt;
+&lt;li&gt;Write a blog post about &amp;#8216;vi-nature&amp;#8217; because there&amp;#8217;s not much about it on the web - Yes I will do this, thanks for the suggestion&amp;nbsp;Max.&lt;/li&gt;
+&lt;li&gt;Check out Mac &lt;span class="caps"&gt;OSX&lt;/span&gt;&amp;#8217;s &lt;a class="reference external" href="https://github.com/jigish/slate"&gt;slate&lt;/a&gt; because it creates a programmable keyboard interface for window management. Thanks&amp;nbsp;David.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Lots to follow up on and hopefully some ways to take vi-nature to more&amp;nbsp;places.&lt;/p&gt;
+&lt;p&gt;Thanks for&amp;nbsp;reading!&lt;/p&gt;
+</summary><category term="vim"></category><category term="talk"></category></entry><entry><title>Things to remember about decorators</title><link href="http://jamescooke.info/things-to-remember-about-decorators.html" rel="alternate"></link><updated>2013-10-22T20:00:00+01:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2013-10-22:things-to-remember-about-decorators.html</id><summary type="html">&lt;p&gt;After an interview question about Python decorators which I stumbled over, I
+promised myself that I would improve my knowledge of this metaprogramming&amp;nbsp;technique.&lt;/p&gt;
+&lt;p&gt;These are my notes to myself on decorators - maybe they&amp;#8217;ll be helpful to
+someone else who&amp;#8217;s improving their knowledge of decorators&amp;nbsp;too.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;A decorator is pure Pythonic syntatic&amp;nbsp;sugar.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;A decorator is a Python callable that receives the decorated function and
+returns a new function in its&amp;nbsp;place.&lt;/p&gt;
+&lt;p&gt;For example, if there is a decorator called &lt;cite&gt;my_decorator&lt;/cite&gt; and we want to
+decorate &lt;cite&gt;my_func&lt;/cite&gt; then&amp;#8230;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nd"&gt;@my_decorator&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;my_func&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;some stuff&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="o"&gt;...&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Is equivalent to&amp;nbsp;writing.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;my_func&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;some stuff&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="o"&gt;...&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt;
+&lt;span class="n"&gt;my_func&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;my_decorator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_func&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;The decorator callable is executed at load time, not at execution time. Here
+is an example of a silly decorator that prints &amp;#8220;Hello World&amp;#8221; when the Python
+file is loaded - there is nothing else in the&amp;nbsp;file.&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;hello.py&lt;/cite&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;say_hello&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Hello World&amp;#39;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;
+
+&lt;span class="nd"&gt;@say_hello&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;nothing&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c"&gt;# Do nothing just return&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="n"&gt;hello&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
+&lt;span class="n"&gt;Hello&lt;/span&gt; &lt;span class="n"&gt;World&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;When writing a decorator, remember to patch over the docstring of the wrapped
+function. This can be done by accessing the passed function&amp;#8217;s &lt;cite&gt;__doc__&lt;/cite&gt;
+attribute. Failing to do so will prevent doctest from testing the decorated&amp;nbsp;function.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;my_decorator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;wrapper&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c"&gt;# Pass through the doc string&lt;/span&gt;
+    &lt;span class="n"&gt;wrapper&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;wrapper&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;When unit testing decorators, one strategy can be to manually call the
+decorator on a mocked object and inspect how it interacts with&amp;nbsp;it.&lt;/p&gt;
+&lt;p&gt;Here&amp;#8217;s a caching function which is used to speed up the Fibonacci&amp;nbsp;series.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;cache&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="c"&gt;# Keep a dict of values returned already&lt;/span&gt;
+    &lt;span class="n"&gt;vals&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;wrapper&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;has_key&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+            &lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+    &lt;span class="n"&gt;wrapper&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt;
+
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;wrapper&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now use the cache function as a&amp;nbsp;decorator.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nd"&gt;@cache&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fib&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Fibonacci series&lt;/span&gt;
+
+&lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; fib(1)&lt;/span&gt;
+&lt;span class="sd"&gt;    1&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; fib(2)&lt;/span&gt;
+&lt;span class="sd"&gt;    2&lt;/span&gt;
+
+&lt;span class="sd"&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Must be greater than 0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;fib&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;fib&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And here&amp;#8217;s a unittest that asserts that the cache function only allows calls
+through when there is no value saved in the &lt;cite&gt;vals&lt;/cite&gt; dict.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;mock&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Mock&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;TestCashDecorator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_cache&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;my_fn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Mock&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;my_fn&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;my_fn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;return_value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;hi&amp;#39;&lt;/span&gt;
+
+        &lt;span class="n"&gt;wrapped&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cache&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_fn&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="c"&gt;# First call gives a call count of 1&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wrapped&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;hi&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_fn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;call_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="c"&gt;# Second call keeps the call count at 1 - the cached value is used&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wrapped&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;hi&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_fn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;call_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="c"&gt;# Subsequent call with a new value increased the call count&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wrapped&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;hi&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_fn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;call_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Make sure the scope of variables used in the decorators is correct, this is
+&lt;a class="reference external" href="http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/"&gt;an interesting article by Simeon Franklin about decorators and scope&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If in doubt, extend any tests to test a second decorated function and ensure
+that the two functions do not effect each&amp;nbsp;other.&lt;/p&gt;
+&lt;p&gt;Below is a test that aims to check that cache dictionaries are not shared
+between instances of the &lt;cite&gt;cache&lt;/cite&gt; decorator, it is appended to the
+&lt;cite&gt;test_cache&lt;/cite&gt; test&amp;nbsp;above.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Check that the vals dict isn&amp;#39;t shared between other decor&lt;/span&gt;
+&lt;span class="n"&gt;my_other_fn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Mock&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;other fn&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;my_other_fn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;return_value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;other hi&amp;#39;&lt;/span&gt;
+&lt;span class="c"&gt;# Create other wrapped function&lt;/span&gt;
+&lt;span class="n"&gt;other_wrapped&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cache&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_other_fn&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;other_wrapped&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;other hi&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_other_fn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;call_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;# The original function has not have been additionally called, its&lt;/span&gt;
+&lt;span class="c"&gt;# call count remains 2&lt;/span&gt;
+&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_fn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;call_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All suggested tips on decorators very welcome - just message in the&amp;nbsp;comments.&lt;/p&gt;
+&lt;p&gt;Thanks for&amp;nbsp;reading!&lt;/p&gt;
+</summary><category term="python"></category></entry><entry><title>Calculating your day rate for spare time freelance work</title><link href="http://jamescooke.info/calculating-your-day-rate-for-spare-time-freelance-work.html" rel="alternate"></link><updated>2013-07-14T20:00:00+01:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2013-07-14:calculating-your-day-rate-for-spare-time-freelance-work.html</id><summary type="html">&lt;p&gt;So you want to do some freelance work and you&amp;#8217;re not sure how much to charge your new client. The most important thing is to not underestimate your value - it frustrates me so much when I hear of a talented coder selling themselves&amp;nbsp;short.&lt;/p&gt;
 &lt;div class="section" id="the-calculation"&gt;
 &lt;h2&gt;The&amp;nbsp;calculation&lt;/h2&gt;
 &lt;p&gt;So when you work for yourself, it&amp;#8217;ll be like your day-job, except you keep the profit and take the additional time and cost&amp;nbsp;overheads.&lt;/p&gt;
