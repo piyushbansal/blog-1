@@ -54,8 +54,10 @@ file is loaded - there is nothing else in the&amp;nbsp;file.&lt;/p&gt;
     &lt;span class="c"&gt;# Do nothing just return&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="n"&gt;hello&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
-&lt;span class="n"&gt;Hello&lt;/span&gt; &lt;span class="n"&gt;World&lt;/span&gt;
+&lt;p&gt;Run it on the command line, and &amp;#8220;Hello World&amp;#8221; appears when the &lt;cite&gt;nothing&lt;/cite&gt;
+function is&amp;nbsp;decorated.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;python hello.py
+Hello World
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;When writing a decorator, remember to patch over the docstring of the wrapped
