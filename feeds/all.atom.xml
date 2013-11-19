@@ -1,5 +1,361 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>James Cooke</title><link href="http://jamescooke.info/" rel="alternate"></link><link href="http://jamescooke.info/feeds/all.atom.xml" rel="self"></link><id>http://jamescooke.info/</id><updated>2013-11-01T20:00:00+00:00</updated><entry><title>vi-nature everywhere - lightning talk</title><link href="http://jamescooke.info/vi-nature-everywhere-lightning-talk.html" rel="alternate"></link><updated>2013-11-01T20:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2013-11-01:vi-nature-everywhere-lightning-talk.html</id><summary type="html">&lt;p&gt;vi-nature, the &amp;#8216;language&amp;#8217; of &lt;cite&gt;vim&lt;/cite&gt;. It&amp;#8217;s the reason that &lt;cite&gt;vim&lt;/cite&gt; works so well
+<feed xmlns="http://www.w3.org/2005/Atom"><title>James Cooke</title><link href="http://jamescooke.info/" rel="alternate"></link><link href="http://jamescooke.info/feeds/all.atom.xml" rel="self"></link><id>http://jamescooke.info/</id><updated>2013-11-19T11:00:00+00:00</updated><entry><title>Git: To squash or not to squash?</title><link href="http://jamescooke.info/git-to-squash-or-not-to-squash.html" rel="alternate"></link><updated>2013-11-19T11:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2013-11-19:git-to-squash-or-not-to-squash.html</id><summary type="html">&lt;p&gt;Over the weekend I spotted a tweet from &lt;a class="reference external" href="http://oli.me.uk/"&gt;Oliver&lt;/a&gt;&amp;#8230;&lt;/p&gt;
+&lt;blockquote class="twitter-tweet" lang="en"&gt;&lt;p&gt;To squash features into develop, or not to squash features into&amp;nbsp;develop?&lt;/p&gt;&amp;mdash; Oliver Caldwell (@OliverCaldwell) &lt;a href="https://twitter.com/OliverCaldwell/statuses/401299558887485440"&gt;November 15, 2013&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;p&gt;And I jumped straight in&amp;nbsp;with&amp;#8230;&lt;/p&gt;
+&lt;blockquote class="twitter-tweet" data-conversation="none" lang="en"&gt;&lt;p&gt;&lt;a href="https://twitter.com/OliverCaldwell"&gt;@OliverCaldwell&lt;/a&gt; Squash, but keep detailed commit messages. Unless you have a particular use-case / reason not&amp;nbsp;to.&lt;/p&gt;&amp;mdash; James Cooke (@jamesfublo) &lt;a href="https://twitter.com/jamesfublo/statuses/402123985791369216"&gt;November 17, 2013&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;p&gt;Then, as part of our following &lt;a class="reference external" href="https://twitter.com/OliverCaldwell/statuses/401299558887485440"&gt;conversation&lt;/a&gt;, I drew a&amp;nbsp;picture:&lt;/p&gt;
+&lt;blockquote class="twitter-tweet" data-conversation="none" lang="en"&gt;&lt;p&gt;&lt;a href="https://twitter.com/OliverCaldwell"&gt;@OliverCaldwell&lt;/a&gt; This is how I see it. Better to keep the direct route rather than the &amp;#8220;how we got here&amp;#8221;. &lt;a href="http://t.co/X5FZQ1euoU"&gt;pic.twitter.com/X5FZQ1euoU&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Cooke (@jamesfublo) &lt;a href="https://twitter.com/jamesfublo/statuses/402407321265274881"&gt;November 18, 2013&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;p&gt;But&amp;#8230;&lt;/p&gt;
+&lt;div class="section" id="it-s-about-more-than-just-squashing"&gt;
+&lt;h2&gt;It&amp;#8217;s about more than just&amp;nbsp;squashing&lt;/h2&gt;
+&lt;p&gt;What I realised while writing this post and experimenting with &lt;cite&gt;git&lt;/cite&gt; is that
+the issue is not as simple as &amp;#8220;Squash? Yes /&amp;nbsp;No?&amp;#8221;&lt;/p&gt;
+&lt;p&gt;Variables to consider&amp;nbsp;include:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;How you record your commit messages on your squashed commit.&lt;/strong&gt; This effects
+the impact of history loss - good commit messages and or external ticketing /
+dev tracking mean it&amp;#8217;s less&amp;nbsp;important.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Whether you push your feature branches for other developers, or between your
+dev boxes, to share.&lt;/strong&gt; Do you need to keep the shared history between&amp;nbsp;machines?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The velocity of your project.&lt;/strong&gt; How long do you need to keep history for?
+Do bugs show up&amp;nbsp;regularly?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="tl-dr-simple-project-squash-yes"&gt;
+&lt;h2&gt;&lt;span class="caps"&gt;TL&lt;/span&gt;;&lt;span class="caps"&gt;DR&lt;/span&gt; Simple project. Squash =&amp;nbsp;Yes&lt;/h2&gt;
+&lt;p&gt;For a simple project with no sharing between devs required and regular
+releases, then squashing features seems like a good idea if&amp;nbsp;you:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Keep detailed commit messages when you&amp;nbsp;squash.&lt;/li&gt;
+&lt;li&gt;Use &lt;cite&gt;git rebase&lt;/cite&gt; to squash your features&amp;#8217; commits into a candidate branch and
+merge that in to &lt;cite&gt;dev&lt;/cite&gt; or &lt;cite&gt;master&lt;/cite&gt; depending on your &lt;span class="caps"&gt;SCM&lt;/span&gt;&amp;nbsp;strategy.&lt;/li&gt;
+&lt;li&gt;Only push your squashed features to keep &lt;cite&gt;origin&lt;/cite&gt; clean and easy to&amp;nbsp;understand.&lt;/li&gt;
+&lt;li&gt;Keep your feature branches if you want. But, if you delete them &lt;cite&gt;git&lt;/cite&gt; will
+keep your commits in the reflog for 30 days by&amp;nbsp;default.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="keeping-a-detailed-history"&gt;
+&lt;h2&gt;Keeping a detailed&amp;nbsp;history&lt;/h2&gt;
+&lt;p&gt;One of the issues that Oliver raised was about losing&amp;nbsp;history.&lt;/p&gt;
+&lt;blockquote class="twitter-tweet" data-conversation="none" lang="en"&gt;&lt;p&gt;&lt;a href="https://twitter.com/jamesfublo"&gt;@jamesfublo&lt;/a&gt; I suppose so. Squashing just feels like you&amp;#39;re killing off that fine grained history, like when was that two line change&amp;nbsp;made.&lt;/p&gt;&amp;mdash; Oliver Caldwell (@OliverCaldwell) &lt;a href="https://twitter.com/OliverCaldwell/statuses/402394094111977472"&gt;November 18, 2013&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;p&gt;So, since I advocate squashing and branch deletion, I&amp;#8217;m therefore suggesting
+that the &lt;strong&gt;reflog is used to recover detailed history in the local repository&lt;/strong&gt;
+if&amp;nbsp;required.&lt;/p&gt;
+&lt;p&gt;So let&amp;#8217;s explore how much history is actually&amp;nbsp;kept&amp;#8230;&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://git-scm.com/docs/git-reflog"&gt;From the docs&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+Reflog is a mechanism to record when the tip of branches are updated.&lt;/blockquote&gt;
+&lt;p&gt;This means&amp;nbsp;that&amp;#8230;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Every commit that every branch in your local repostitory has ever pointed to
+is kept in the&amp;nbsp;reflog.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;And this even includes branch&amp;nbsp;switching&amp;#8230;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;span class="caps"&gt;HEAD&lt;/span&gt; reflog records branch switching as well.&lt;/blockquote&gt;
+&lt;p&gt;Sounds very warm and cozy, &lt;strong&gt;&lt;span class="caps"&gt;BUT&lt;/span&gt;&lt;/strong&gt; there are conditions, so let&amp;#8217;s do a
+practical experiment with a test&amp;nbsp;repository.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="experiment-squashing-with-rebase-and-keeping-history"&gt;
+&lt;h2&gt;Experiment: Squashing with rebase and keeping&amp;nbsp;history&lt;/h2&gt;
+&lt;p&gt;Make a repository with an initial&amp;nbsp;commit.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git init
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Create a &lt;cite&gt;&lt;span class="caps"&gt;README&lt;/span&gt;.md&lt;/cite&gt; file and put a line of text into it and commit - this
+commit is called&amp;nbsp;A.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;cat &amp;gt; &lt;span class="caps"&gt;README&lt;/span&gt;.md
+First line of readme file
+^C
+&lt;span class="nv"&gt;$ &lt;/span&gt;git add &lt;span class="caps"&gt;README&lt;/span&gt;.md
+&lt;span class="nv"&gt;$ &lt;/span&gt;git commit
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Current &lt;cite&gt;git&lt;/cite&gt; tree&amp;nbsp;status:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+A   &amp;lt;-master
+&lt;/pre&gt;
+&lt;div class="section" id="work-on-feature"&gt;
+&lt;h3&gt;Work on&amp;nbsp;feature&lt;/h3&gt;
+&lt;p&gt;In a new branch, we create a &lt;em&gt;feature&lt;/em&gt; to update the &lt;span class="caps"&gt;README&lt;/span&gt; with two new lines
+and to delete the first&amp;nbsp;line.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git checkout -b feature-a
+
+&lt;span class="c"&gt;# First feature commit (B)&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;cat &amp;gt;&amp;gt; &lt;span class="caps"&gt;README&lt;/span&gt;.md
+Add a second line
+^C
+&lt;span class="nv"&gt;$ &lt;/span&gt;git add &lt;span class="caps"&gt;README&lt;/span&gt;.md
+&lt;span class="nv"&gt;$ &lt;/span&gt;git commit
+
+&lt;span class="c"&gt;# Second feature commit (C)&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;cat &amp;gt;&amp;gt; &lt;span class="caps"&gt;README&lt;/span&gt;.md
+Add a third line
+^C
+&lt;span class="nv"&gt;$ &lt;/span&gt;git add &lt;span class="caps"&gt;README&lt;/span&gt;.md
+&lt;span class="nv"&gt;$ &lt;/span&gt;git commit
+
+&lt;span class="c"&gt;# Third feature commit (D)&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;vim &lt;span class="caps"&gt;README&lt;/span&gt;.md
+&lt;span class="c"&gt;# Remove first line and save&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;git add &lt;span class="caps"&gt;README&lt;/span&gt;.md
+&lt;span class="nv"&gt;$ &lt;/span&gt;git commit
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Current &lt;cite&gt;git&lt;/cite&gt; tree&amp;nbsp;status:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+A   &amp;lt;-master
+ \
+  B--C--D   &amp;lt;-feature-a
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="check-progress-in-reflog"&gt;
+&lt;h3&gt;Check progress in&amp;nbsp;reflog&lt;/h3&gt;
+&lt;p&gt;Checkout &lt;cite&gt;master&lt;/cite&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git checkout master
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Let&amp;#8217;s check the&amp;nbsp;reflog.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git reflog
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="literal-block"&gt;
+8e48d1d HEAD&amp;#64;{0}: checkout: moving from feature-a to master
+262057a HEAD&amp;#64;{1}: commit: D: Remove first line
+9efbf73 HEAD&amp;#64;{2}: commit: C: Add a third line
+f2503d5 HEAD&amp;#64;{3}: commit: B: Add a second line
+8e48d1d HEAD&amp;#64;{4}: checkout: moving from master to feature-a
+8e48d1d HEAD&amp;#64;{5}: commit (initial): Make readme
+&lt;/pre&gt;
+&lt;p&gt;Newest stuff pops out&amp;nbsp;first:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;cite&gt;&lt;span class="caps"&gt;HEAD&lt;/span&gt;&amp;#64;{0}&lt;/cite&gt; - Checkout from &lt;cite&gt;feature-a&lt;/cite&gt; to &lt;cite&gt;master&lt;/cite&gt; is&amp;nbsp;recorded.&lt;/li&gt;
+&lt;li&gt;&lt;cite&gt;&lt;span class="caps"&gt;HEAD&lt;/span&gt;&amp;#64;{1}&lt;/cite&gt; to &lt;cite&gt;&lt;span class="caps"&gt;HEAD&lt;/span&gt;&amp;#64;{3}&lt;/cite&gt; - our &lt;cite&gt;feature-a&lt;/cite&gt; commits (D, C and&amp;nbsp;B).&lt;/li&gt;
+&lt;li&gt;&lt;cite&gt;&lt;span class="caps"&gt;HEAD&lt;/span&gt;&amp;#64;{4}&lt;/cite&gt; - Checkout of the &lt;cite&gt;feature-a&lt;/cite&gt; branch.&lt;/li&gt;
+&lt;li&gt;&lt;cite&gt;&lt;span class="caps"&gt;HEAD&lt;/span&gt;&amp;#64;{5}&lt;/cite&gt; - Initial&amp;nbsp;commit.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="squash-commits-into-candidate-branch"&gt;
+&lt;h3&gt;Squash commits into candidate&amp;nbsp;branch&lt;/h3&gt;
+&lt;p&gt;&lt;cite&gt;feature-a&lt;/cite&gt; is ready to bring into &lt;cite&gt;master&lt;/cite&gt;. Let&amp;#8217;s first cleanup our history by
+doing an interactive rebase. We use a candidate branch for this work because
+it&amp;#8217;s a nice safety net which can help with&amp;nbsp;testing.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git checkout feature-a
+&lt;span class="nv"&gt;$ &lt;/span&gt;git checkout -b feature-a-candidate
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Current &lt;cite&gt;git&lt;/cite&gt; tree&amp;nbsp;status:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+A   &amp;lt;-master
+ \
+  B--C--D   &amp;lt;-feature-a &amp;lt;-feature-a-candidate
+&lt;/pre&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git rebase --interactive master
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Let&amp;#8217;s squash our three commits into&amp;nbsp;one.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+pick f2503d5 B: Add a second line
+squash 9efbf73 C: Add a third line
+squash 262057a D: Remove first line
+&lt;/pre&gt;
+&lt;p&gt;And now we merge together the three commits, describing the activity that took
+place. We keep the messages so that history is clean, but informative. We also
+include a reference to the ticket we are working&amp;nbsp;against:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Updating README.md as per #ticket
+
+* Add a second line
+* Add a third line
+* Remove first line
+&lt;/pre&gt;
+&lt;p&gt;Check reflog&amp;nbsp;again:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git reflog
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="literal-block"&gt;
+d0445b2 HEAD&amp;#64;{0}: rebase -i (finish): returning to refs/heads/feature-a-candidat
+d0445b2 HEAD&amp;#64;{1}: rebase -i (squash): Updating README.md as per #ticket
+362b6ef HEAD&amp;#64;{2}: rebase -i (squash): # This is a combination of 2 commits.
+f2503d5 HEAD&amp;#64;{3}: checkout: moving from feature-a-candidate to f2503d5
+262057a HEAD&amp;#64;{4}: checkout: moving from feature-a to feature-a-candidate
+&lt;/pre&gt;
+&lt;p&gt;The reflog shows us that there is a new commit &lt;cite&gt;d0445b2&lt;/cite&gt;, we&amp;#8217;ll call this &lt;cite&gt;E&lt;/cite&gt;.
+This is the commit that results from the rebase and leaves the tree looking&amp;nbsp;like:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+A   &amp;lt;-master
+|\
+| B--C--D   &amp;lt;-feature-a
+\
+ \
+  E   &amp;lt;-feature-a-candidate
+&lt;/pre&gt;
+&lt;p&gt;This is a good stage to test everything &lt;strong&gt;and&lt;/strong&gt; to check that your tests are
+what you expect them to be, ensure that no information has been&amp;nbsp;lost.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="merge-onto-master"&gt;
+&lt;h3&gt;Merge onto&amp;nbsp;master&lt;/h3&gt;
+&lt;p&gt;The new commit &lt;cite&gt;E&lt;/cite&gt; is the patch for our &lt;em&gt;feature&lt;/em&gt; which we now merge onto
+&lt;cite&gt;master&lt;/cite&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git checkout master
+&lt;span class="nv"&gt;$ &lt;/span&gt;git merge feature-a-candidate master
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="literal-block"&gt;
+Updating 8e48d1d..d0445b2
+Fast-forward
+ README.md | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+&lt;/pre&gt;
+&lt;p&gt;The&amp;nbsp;tree:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+A--E   &amp;lt;-master &amp;lt;-feature-a-candidate
+ \
+  B--C--D   &amp;lt;-feature-a
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="push"&gt;
+&lt;h3&gt;Push&lt;/h3&gt;
+&lt;p&gt;At this stage the &lt;em&gt;feature&lt;/em&gt; would usually be pushed to a branch on &lt;cite&gt;origin&lt;/cite&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git push origin master
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note that we&amp;#8217;ve only shared the squashed &lt;cite&gt;E&lt;/cite&gt; commit, not &lt;cite&gt;B&lt;/cite&gt;, &lt;cite&gt;C&lt;/cite&gt; or &lt;cite&gt;D&lt;/cite&gt; in the
+&lt;cite&gt;feature-a&lt;/cite&gt; branch.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cleanup"&gt;
+&lt;h3&gt;Cleanup&lt;/h3&gt;
+&lt;p&gt;We can then cleanup our working branches. First the&amp;nbsp;candidate.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git branch -d feature-a-candidate
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This leaves us with a tree&amp;nbsp;like:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+A--E   &amp;lt;-master
+ \
+  B--C--D   &amp;lt;-feature-a
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="keeping-history"&gt;
+&lt;h2&gt;Keeping&amp;nbsp;history&lt;/h2&gt;
+&lt;p&gt;As Oliver noted, the &lt;cite&gt;feature-a&lt;/cite&gt; branch can just be kept by the developer in
+their local repository to preserve the full history - that is certainly an&amp;nbsp;option.&lt;/p&gt;
+&lt;blockquote class="twitter-tweet" data-conversation="none" lang="en"&gt;&lt;p&gt;&lt;a href="https://twitter.com/jamesfublo"&gt;@jamesfublo&lt;/a&gt; I suppose you can still keep the unsquashed branches in the repository. I never used to squash, but I might&amp;nbsp;start.&lt;/p&gt;&amp;mdash; Oliver Caldwell (@OliverCaldwell) &lt;a href="https://twitter.com/OliverCaldwell/statuses/402401798738018304"&gt;November 18, 2013&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;p&gt;However, I prefer a clean working repository so I like to delete the
+&lt;cite&gt;feature-a&lt;/cite&gt; branch.&lt;/p&gt;
+&lt;div class="section" id="clean-up-the-feature-branch"&gt;
+&lt;h3&gt;Clean up the feature&amp;nbsp;branch&lt;/h3&gt;
+&lt;p&gt;When deleting the &lt;cite&gt;feature-a&lt;/cite&gt; branch &lt;cite&gt;git&lt;/cite&gt; requires the &lt;cite&gt;-D&lt;/cite&gt; flag to force the
+deletion. &lt;cite&gt;git&lt;/cite&gt; does not &lt;em&gt;work out&lt;/em&gt; that &lt;cite&gt;E&lt;/cite&gt; is &lt;em&gt;equal&lt;/em&gt; to &lt;cite&gt;B&lt;/cite&gt;, &lt;cite&gt;C&lt;/cite&gt; and &lt;cite&gt;D&lt;/cite&gt;
+combined, so thinks that history could be&amp;nbsp;lost.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git branch -D feature-a
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="literal-block"&gt;
+Deleted branch feature-a (was 262057a)
+&lt;/pre&gt;
+&lt;p&gt;This leaves a tree&amp;nbsp;like:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+A--E   &amp;lt;-master
+ \
+  B--C--D
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="b-c-and-d-are-now-hanging-commits"&gt;
+&lt;h3&gt;B, C and D are now hanging&amp;nbsp;commits&lt;/h3&gt;
+&lt;p&gt;Check&amp;nbsp;reflog.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git reflog
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is a part of&amp;nbsp;it:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+...
+262057a HEAD&amp;#64;{12}: commit: D: Remove first line
+9efbf73 HEAD&amp;#64;{13}: commit: C: Add a third line
+f2503d5 HEAD&amp;#64;{14}: commit: B: Add a second line
+...
+&lt;/pre&gt;
+&lt;p&gt;The development commits from the &lt;em&gt;feature&lt;/em&gt; development are still available and
+could be checked out into &lt;em&gt;detached &lt;span class="caps"&gt;HEAD&lt;/span&gt;&lt;/em&gt; state and inspected, played with,
+rebranched. Let&amp;#8217;s try&amp;nbsp;that.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git checkout 262057a
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now play and explore as much as you&amp;nbsp;want.&lt;/p&gt;
+&lt;p&gt;When you&amp;#8217;re ready, move back to &lt;cite&gt;master&lt;/cite&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git checkout master
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And &lt;cite&gt;git&lt;/cite&gt; warns us that we&amp;#8217;ve left behind our hanging&amp;nbsp;commits:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Warning: you are leaving 3 commits behind, not connected to
+any of your branches:
+
+  262057a D: Remove first line
+  9efbf73 C: Add a third line
+  f2503d5 B: Add a second line
+
+If you want to keep them by creating a new branch, this may be a good time
+to do so with:
+
+ git branch new_branch_name 262057a
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="how-long-are-hanging-commits-kept"&gt;
+&lt;h2&gt;How long are hanging commits&amp;nbsp;kept?&lt;/h2&gt;
+&lt;p&gt;But how long will these unreachable commits &lt;em&gt;hang&lt;/em&gt; around&amp;nbsp;for?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;We can&amp;nbsp;decide!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Hanging commits are removed from the local repository by garbage collection,
+known as &lt;cite&gt;gc&lt;/cite&gt;, or by manual&amp;nbsp;removal.&lt;/p&gt;
+&lt;p&gt;There are various settings which &lt;cite&gt;gc&lt;/cite&gt; will use to determine which commits
+should be cleaned before the repository is&amp;nbsp;repacked.&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;gc.reflogExpireUnreachable&lt;/cite&gt; tells &lt;cite&gt;gc&lt;/cite&gt; how long hanging commits should be left
+in the repository. Default value is 30 days. Adjust this to a value that you
+feel comfortable with. You can make that setting on any of the normal levels -
+global, system or&amp;nbsp;local.&lt;/p&gt;
+&lt;p&gt;Hey - you want to keep all history in the reflog for ever? Here&amp;#8217;s a&amp;nbsp;setting:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+[gc]
+    reflogExpire = never
+    reflogExpireUnreachable = never
+&lt;/pre&gt;
+&lt;p&gt;I&amp;#8217;m happy with the 30 day default&amp;nbsp;myself!&lt;/p&gt;
+&lt;p&gt;For more detailed explanation, checkout the Configuration section of the
+&lt;cite&gt;git-gc&lt;/cite&gt; man&amp;nbsp;page.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="a-manual-clean"&gt;
+&lt;h2&gt;A manual&amp;nbsp;clean&lt;/h2&gt;
+&lt;p&gt;Just for experimention, I tried to clean the repository of the &lt;cite&gt;B&lt;/cite&gt;, &lt;cite&gt;C&lt;/cite&gt; and &lt;cite&gt;D&lt;/cite&gt;
+hanging commits. This was challenging because my default settings prevented
+reflog and &lt;cite&gt;gc&lt;/cite&gt; from performing the clean, however I found &lt;a class="reference external" href="http://stackoverflow.com/a/14995269/1286705"&gt;this &lt;span class="caps"&gt;SO&lt;/span&gt; answer
+helpful&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git reflog expire --all --expire-unreachable&lt;span class="o"&gt;=&lt;/span&gt;0
+&lt;span class="nv"&gt;$ &lt;/span&gt;git repack -A -d
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Repacking occurred. Now check&amp;nbsp;reflog.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git reflog
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="literal-block"&gt;
+d0445b2 HEAD&amp;#64;{0}: merge feature-a-candidate: Fast-forward
+8e48d1d HEAD&amp;#64;{1}: checkout: moving from feature-a-candidate to master
+d0445b2 HEAD&amp;#64;{2}: rebase -i (finish): returning to refs/heads/feature-a-candidat
+d0445b2 HEAD&amp;#64;{3}: checkout: moving from master to feature-a
+8e48d1d HEAD&amp;#64;{4}: commit (initial): Make readme
+&lt;/pre&gt;
+&lt;p&gt;There are now only two commits in the&amp;nbsp;repository:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;cite&gt;8e48d1d&lt;/cite&gt; - Initial commit &lt;cite&gt;A&lt;/cite&gt; &amp;#64; 1 and&amp;nbsp;4.&lt;/li&gt;
+&lt;li&gt;&lt;cite&gt;d0445b2&lt;/cite&gt; - Feature commit &lt;cite&gt;E&lt;/cite&gt; made by the rebase &amp;#64; 0, 2 and&amp;nbsp;3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The cleaned repository now looks&amp;nbsp;like:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+A--E   &amp;lt;-master
+&lt;/pre&gt;
+&lt;p&gt;So fresh and so&amp;nbsp;clean!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="summary"&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;At the end of the day, the dev team (even if that&amp;#8217;s just you on a weekend
+project) decides how best to keep history and share&amp;nbsp;features.&lt;/p&gt;
+&lt;p&gt;My general solution is&amp;nbsp;for:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Squashed single-commit&amp;nbsp;features.&lt;/li&gt;
+&lt;li&gt;Detailed commit messages created at &lt;em&gt;squash-time&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Devs keep more history locally, either with branches or in a long-life&amp;nbsp;reflog.&lt;/li&gt;
+&lt;li&gt;Devs backup their repositories and don&amp;#8217;t rely on &lt;cite&gt;origin&lt;/cite&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Remember there can be a full 30 day history (or longer depending on the
+&lt;cite&gt;gc.reflogExpireUnreachable&lt;/cite&gt; setting) in the local repo which hasn&amp;#8217;t been
+pushed to &lt;cite&gt;origin&lt;/cite&gt;. It&amp;#8217;s this history that could save your bacon one day - so
+consider backing it&amp;nbsp;up!&lt;/p&gt;
+&lt;p&gt;Happy source code&amp;nbsp;management!&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="git"></category></entry><entry><title>vi-nature everywhere - lightning talk</title><link href="http://jamescooke.info/vi-nature-everywhere-lightning-talk.html" rel="alternate"></link><updated>2013-11-01T20:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2013-11-01:vi-nature-everywhere-lightning-talk.html</id><summary type="html">&lt;p&gt;vi-nature, the &amp;#8216;language&amp;#8217; of &lt;cite&gt;vim&lt;/cite&gt;. It&amp;#8217;s the reason that &lt;cite&gt;vim&lt;/cite&gt; works so well
 for me. However, it does take some learning, and even after many months of use,
 I&amp;#8217;d say I&amp;#8217;ve only just scratched the&amp;nbsp;surface.&lt;/p&gt;
 &lt;p&gt;So if we&amp;#8217;re investing so much time and energy in learning this language, then
