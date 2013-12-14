@@ -1,5 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>James Cooke</title><link href="http://jamescooke.info/" rel="alternate"></link><link href="http://jamescooke.info/feeds/all-en.atom.xml" rel="self"></link><id>http://jamescooke.info/</id><updated>2013-11-19T11:00:00+00:00</updated><entry><title>Git: To squash or not to squash?</title><link href="http://jamescooke.info/git-to-squash-or-not-to-squash.html" rel="alternate"></link><updated>2013-11-19T11:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2013-11-19:git-to-squash-or-not-to-squash.html</id><summary type="html">&lt;p&gt;Over the weekend I spotted a tweet from &lt;a class="reference external" href="http://oli.me.uk/"&gt;Oliver&lt;/a&gt;&amp;#8230;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>James Cooke</title><link href="http://jamescooke.info/" rel="alternate"></link><link href="http://jamescooke.info/feeds/all-en.atom.xml" rel="self"></link><id>http://jamescooke.info/</id><updated>2013-12-14T16:00:00+00:00</updated><entry><title>Python generators and yield</title><link href="http://jamescooke.info/python-generators-and-yield.html" rel="alternate"></link><updated>2013-12-14T16:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2013-12-14:python-generators-and-yield.html</id><summary type="html">&lt;p&gt;Last week in an interview for a Django developer job, I was&amp;nbsp;asked:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;thing&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;xrange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;!--  --&gt;
+&lt;blockquote&gt;
+What is the type of thing?&lt;/blockquote&gt;
+&lt;p&gt;Although I was able to identify that the type is dependent on the &lt;cite&gt;()&lt;/cite&gt; around
+the list-comprehension-like-construction, I didn&amp;#8217;t know the exact type that
+&lt;cite&gt;thing&lt;/cite&gt; would&amp;nbsp;be.&lt;/p&gt;
+&lt;p&gt;The answer is a &lt;strong&gt;generator&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;This post shows some of the functionalities of generators and how they can
+be used in Python control&amp;nbsp;flow.&lt;/p&gt;
+&lt;div class="section" id="generator-expressions"&gt;
+&lt;h2&gt;Generator&amp;nbsp;expressions&lt;/h2&gt;
+&lt;p&gt;Generators can be created with generator expressions. A generator expression is
+a bit like a list comprehension. List Comprehension uses square brackets
+&lt;cite&gt;[]&lt;/cite&gt;. In&amp;nbsp;Python&amp;#8230;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="literal-block"&gt;
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+&lt;/pre&gt;
+&lt;p&gt;A generator expression is a shortcut that allows generators to be created
+easily with a similar syntax - this time it&amp;#8217;s using parentheses &lt;cite&gt;()&lt;/cite&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;generator object &amp;lt;genexpr&amp;gt; at 0x2fa5eb0&amp;gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="generators-are-iterators"&gt;
+&lt;h2&gt;Generators are&amp;nbsp;iterators&lt;/h2&gt;
+&lt;p&gt;Generators &amp;#8220;provide a convenient way to implement the iterator&amp;nbsp;protocol&amp;#8221;.&lt;/p&gt;
+&lt;p&gt;In Python, an &lt;a class="reference external" href="http://docs.python.org/2.7/library/stdtypes.html#typeiter"&gt;iterator&lt;/a&gt; provides two key
+functions, &lt;cite&gt;__iter__&lt;/cite&gt; and &lt;cite&gt;next&lt;/cite&gt;, so a generator itself must provide these two&amp;nbsp;functions:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;my_gen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;my_gen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__iter__&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;genexpr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="mh"&gt;0x293c3c0&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;cite&gt;__iter__&lt;/cite&gt; is there and returns the generator, now for &lt;cite&gt;next&lt;/cite&gt;&amp;#8230;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;my_gen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;my_gen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Therefore &lt;cite&gt;next&lt;/cite&gt; works. We can keep hitting&amp;nbsp;until&amp;#8230;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;my_gen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="mi"&gt;81&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;my_gen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;---------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="ne"&gt;StopIteration&lt;/span&gt;                             &lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ipython&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b28d59f370d8&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;----&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;zzz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="ne"&gt;StopIteration&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A &lt;cite&gt;StopIteration&lt;/cite&gt; is raised - so the generator does everything we&amp;#8217;d expect it
+to by the iterator&amp;nbsp;protocol.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="building-a-generator-with-yield"&gt;
+&lt;h2&gt;Building a generator with&amp;nbsp;yield&lt;/h2&gt;
+&lt;p&gt;Although it&amp;#8217;s not clear from the example above, a generator is able to
+relinquish control and return a value - while saving its state. It then allows
+the control to pass back to the structure that called it, until it&amp;#8217;s called
+again, picking up where it left&amp;nbsp;off.&lt;/p&gt;
+&lt;p&gt;This allows for loops over sets of values to be programmed, without the full
+list of values being calculated first. A generator can be used so that &lt;cite&gt;next&lt;/cite&gt;
+is called before each iteration&amp;nbsp;required.&lt;/p&gt;
+&lt;p&gt;In this way, only the values required for each iteration need to be&amp;nbsp;computed.&lt;/p&gt;
+&lt;div class="section" id="the-yield-keyword-simple-example"&gt;
+&lt;h3&gt;The yield keyword - simple&amp;nbsp;example&lt;/h3&gt;
+&lt;p&gt;Adding &lt;cite&gt;yield&lt;/cite&gt; to a function allows for generators to be constructed&amp;nbsp;&amp;#8216;manually&amp;#8217;.&lt;/p&gt;
+&lt;p&gt;At its very simplest, a function could be written just to generate a single
+value. However, to show that a generator can return to its previous state when
+called again, let&amp;#8217;s make one with two values. For&amp;nbsp;example&amp;#8230;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;two_things&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;hi&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now we can make an instance of the&amp;nbsp;generator.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;my_things&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;two_things&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;my_things&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt; &lt;span class="n"&gt;two_things&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="mh"&gt;0x31d0960&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And we can ask for next&amp;nbsp;value.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;my_things&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now when we call &lt;cite&gt;next&lt;/cite&gt; again, our generator continues from the state of the
+last&amp;nbsp;yield.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;my_things&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="s"&gt;&amp;#39;hi&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So you see how different values can be returned, one after the&amp;nbsp;other.&lt;/p&gt;
+&lt;p&gt;And after that second thing, the generator now raises a &lt;cite&gt;StopIteration&lt;/cite&gt;, since
+it has no further values to&amp;nbsp;return.&lt;/p&gt;
+&lt;p&gt;Since a generator implements the iterator protocol, it can be used in a &lt;cite&gt;for&lt;/cite&gt;
+statement and therefore in a list comprehension. This makes for a convenient
+way to check the values of a limited generator like this&amp;nbsp;one.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;two_things&lt;/span&gt;&lt;span class="p"&gt;()]&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;hi&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="more-complex-example-with-yield"&gt;
+&lt;h3&gt;More complex example with&amp;nbsp;yield&lt;/h3&gt;
+&lt;p&gt;So let&amp;#8217;s write Fibonacci as a generator. I&amp;#8217;m going to start with doctests to
+create the definition of the function, then put the code at the&amp;nbsp;end.&lt;/p&gt;
+&lt;p&gt;What I like about the doctests in this example is that in 3 &lt;cite&gt;fib&lt;/cite&gt; is tested
+with &lt;cite&gt;next&lt;/cite&gt;, but in 4 it&amp;#8217;s tested using a list&amp;nbsp;comprehension.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fib&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+&lt;span class="sd"&gt;    1.  Creates a generator&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; type(fib(0))&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;lt;type &amp;#39;generator&amp;#39;&amp;gt;&lt;/span&gt;
+
+&lt;span class="sd"&gt;    2.  fib(0) just generates 0th value (1)&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; zero_fib = fib(0)&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; zero_fib.next()&lt;/span&gt;
+&lt;span class="sd"&gt;    1&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; zero_fib.next()&lt;/span&gt;
+&lt;span class="sd"&gt;    Traceback (most recent call last):&lt;/span&gt;
+&lt;span class="sd"&gt;    ...&lt;/span&gt;
+&lt;span class="sd"&gt;    StopIteration&lt;/span&gt;
+
+&lt;span class="sd"&gt;    3.  fib(1) creates a generator that creates 0th (1) and 1st (1) values of&lt;/span&gt;
+&lt;span class="sd"&gt;        fib seq&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; one_fib = fib(1)&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; one_fib.next()&lt;/span&gt;
+&lt;span class="sd"&gt;    1&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; one_fib.next()&lt;/span&gt;
+&lt;span class="sd"&gt;    1&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; one_fib.next()&lt;/span&gt;
+&lt;span class="sd"&gt;    Traceback (most recent call last):&lt;/span&gt;
+&lt;span class="sd"&gt;    ...&lt;/span&gt;
+&lt;span class="sd"&gt;    StopIteration&lt;/span&gt;
+
+&lt;span class="sd"&gt;    4.  fib(10) generates the first 10 fibonacci numbers&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; [x for x in fib(10)]&lt;/span&gt;
+&lt;span class="sd"&gt;    [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]&lt;/span&gt;
+
+&lt;span class="sd"&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+
+    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;
+
+        &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
+        &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
+        &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;
+        &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That&amp;#8217;s all - have fun with&amp;nbsp;generators!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="python"></category></entry><entry><title>Git: To squash or not to squash?</title><link href="http://jamescooke.info/git-to-squash-or-not-to-squash.html" rel="alternate"></link><updated>2013-11-19T11:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2013-11-19:git-to-squash-or-not-to-squash.html</id><summary type="html">&lt;p&gt;Over the weekend I spotted a tweet from &lt;a class="reference external" href="http://oli.me.uk/"&gt;Oliver&lt;/a&gt;&amp;#8230;&lt;/p&gt;
 &lt;blockquote class="twitter-tweet" lang="en"&gt;&lt;p&gt;To squash features into develop, or not to squash features into&amp;nbsp;develop?&lt;/p&gt;&amp;mdash; Oliver Caldwell (@OliverCaldwell) &lt;a href="https://twitter.com/OliverCaldwell/statuses/401299558887485440"&gt;November 15, 2013&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;p&gt;And I jumped straight in&amp;nbsp;with&amp;#8230;&lt;/p&gt;
 &lt;blockquote class="twitter-tweet" data-conversation="none" lang="en"&gt;&lt;p&gt;&lt;a href="https://twitter.com/OliverCaldwell"&gt;@OliverCaldwell&lt;/a&gt; Squash, but keep detailed commit messages. Unless you have a particular use-case / reason not&amp;nbsp;to.&lt;/p&gt;&amp;mdash; James Cooke (@jamesfublo) &lt;a href="https://twitter.com/jamesfublo/statuses/402123985791369216"&gt;November 17, 2013&lt;/a&gt;&lt;/blockquote&gt;
