@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>James Cooke</title><link href="http://jamescooke.info/" rel="alternate"></link><link href="http://jamescooke.info/feeds/Code.atom.xml" rel="self"></link><id>http://jamescooke.info/</id><updated>2013-12-14T16:00:00+00:00</updated><entry><title>Python generators and yield</title><link href="http://jamescooke.info/python-generators-and-yield.html" rel="alternate"></link><updated>2013-12-14T16:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2013-12-14:python-generators-and-yield.html</id><summary type="html">&lt;p&gt;Last week in an interview for a Django developer job, I was&amp;nbsp;asked:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>James Cooke</title><link href="http://jamescooke.info/" rel="alternate"></link><link href="http://jamescooke.info/feeds/Code.atom.xml" rel="self"></link><id>http://jamescooke.info/</id><updated>2014-01-31T16:00:00+00:00</updated><entry><title>Seinfeld method and coding</title><link href="http://jamescooke.info/seinfeld-method-and-coding.html" rel="alternate"></link><updated>2014-01-31T16:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2014-01-31:seinfeld-method-and-coding.html</id><summary type="html">&lt;p&gt;This presentation focuses on using the Seinfeld method &amp;#8220;Don&amp;#8217;t break the chain&amp;#8221;
+to get going with personal projects. Those could be all types of things from
+learning the piano, a new programming language or achieving a personal&amp;nbsp;goal.&lt;/p&gt;
+&lt;p&gt;I believe that the Seinfeld method can help break down some of the blockers
+that we experience when procrastinating, by forcing us to refactor large,
+unmeasurable and daunting tasks into mini-tasks with are the opposite -
+achievable, simple and regular. It also helps us to refocus on continual small
+steps rather than the big&amp;nbsp;picture.&lt;/p&gt;
+&lt;br&gt;
+&lt;script async class="speakerdeck-embed" data-id="bdabe0106c8c013162a91ed72f379050" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"&gt;&lt;/script&gt;
+&lt;br&gt;&lt;p&gt;I&amp;#8217;m especially keen on how the regular measurement time spent on a project can give insight, and so I&amp;#8217;ve started combining Seinfeld with Pomodoro&amp;nbsp;Technique.&lt;/p&gt;
+&lt;p&gt;The most important thing is to &amp;#8220;make it work for you&amp;#8221; - there are all sorts of
+ways that these techniques can be used to push a project forward or help you to
+achieve your&amp;nbsp;goal.&lt;/p&gt;
+&lt;p&gt;Hope that&amp;#8217;s&amp;nbsp;helpful!&lt;/p&gt;
+&lt;p&gt;Thanks to &lt;a class="reference external" href="http://ustwo.com/"&gt;Victor at ustwo London&lt;/a&gt; for asking me to talk
+at their Tech&amp;nbsp;Thursday.&lt;/p&gt;
+&lt;p&gt;Read more on &lt;a class="reference external" href="http://lifehacker.com/281626/jerry-seinfelds-productivity-secret"&gt;Seinfeld Technique&lt;/a&gt; and
+&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Pomodoro_Technique"&gt;Pomorodo Technique&lt;/a&gt;. I&amp;#8217;m
+currently using &lt;a class="reference external" href="http://tomatoi.st/"&gt;tomatoist&lt;/a&gt; as my online pomodoro&amp;nbsp;timer.&lt;/p&gt;
+</summary></entry><entry><title>Python generators and yield</title><link href="http://jamescooke.info/python-generators-and-yield.html" rel="alternate"></link><updated>2013-12-14T16:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2013-12-14:python-generators-and-yield.html</id><summary type="html">&lt;p&gt;Last week in an interview for a Django developer job, I was&amp;nbsp;asked:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;thing&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;xrange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;!--  --&gt;
