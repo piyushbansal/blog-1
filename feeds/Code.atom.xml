@@ -18,7 +18,7 @@ achieve your&amp;nbsp;goal.&lt;/p&gt;
 &lt;p&gt;Thanks to &lt;a class="reference external" href="http://ustwo.com/"&gt;Victor at ustwo London&lt;/a&gt; for asking me to talk
 at their Tech&amp;nbsp;Thursday.&lt;/p&gt;
 &lt;p&gt;Read more on &lt;a class="reference external" href="http://lifehacker.com/281626/jerry-seinfelds-productivity-secret"&gt;Seinfeld Technique&lt;/a&gt; and
-&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Pomodoro_Technique"&gt;Pomorodo Technique&lt;/a&gt;. I&amp;#8217;m
+&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Pomodoro_Technique"&gt;Pomodoro Technique&lt;/a&gt;. I&amp;#8217;m
 currently using &lt;a class="reference external" href="http://tomatoi.st/"&gt;tomatoist&lt;/a&gt; as my online pomodoro&amp;nbsp;timer.&lt;/p&gt;
 </summary></entry><entry><title>Python generators and yield</title><link href="http://jamescooke.info/python-generators-and-yield.html" rel="alternate"></link><updated>2013-12-14T16:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2013-12-14:python-generators-and-yield.html</id><summary type="html">&lt;p&gt;Last week in an interview for a Django developer job, I was&amp;nbsp;asked:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;thing&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;xrange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
