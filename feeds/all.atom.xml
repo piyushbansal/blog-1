@@ -1,5 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>James Cooke</title><link href="http://jamescooke.info/" rel="alternate"></link><link href="http://jamescooke.info/feeds/all.atom.xml" rel="self"></link><id>http://jamescooke.info/</id><updated>2014-01-31T16:00:00+00:00</updated><entry><title>Seinfeld method and coding</title><link href="http://jamescooke.info/seinfeld-method-and-coding.html" rel="alternate"></link><updated>2014-01-31T16:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2014-01-31:seinfeld-method-and-coding.html</id><summary type="html">&lt;p&gt;This presentation focuses on using the Seinfeld method &amp;#8220;Don&amp;#8217;t break the chain&amp;#8221;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>James Cooke</title><link href="http://jamescooke.info/" rel="alternate"></link><link href="http://jamescooke.info/feeds/all.atom.xml" rel="self"></link><id>http://jamescooke.info/</id><updated>2014-03-29T16:00:00+00:00</updated><entry><title>Flat designs to website specification - a checklist</title><link href="http://jamescooke.info/flat-designs-to-website-specification-a-checklist.html" rel="alternate"></link><updated>2014-03-29T16:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2014-03-29:flat-designs-to-website-specification-a-checklist.html</id><summary type="html">&lt;div class="section" id="isolated-design-has-problems"&gt;
+&lt;h2&gt;Isolated design has&amp;nbsp;problems&lt;/h2&gt;
+&lt;p&gt;Since many web projects are approached from the visual aspect, often the &lt;em&gt;seen&lt;/em&gt;
+elements are designed first. This can be fine if it&amp;#8217;s integrated with well
+thought out feedback from developers, but can create more work for the project
+if it&amp;#8217;s completed and signed off in&amp;nbsp;isolation.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Results in more development work&lt;/strong&gt; when a design might have some serious
+development implications when compared to a slightly different solution that
+could also have been&amp;nbsp;acceptable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Work estimates will be less accurate&lt;/strong&gt; since the flat designs just start to
+scratch the surface of the development required - they are not a full&amp;nbsp;specification.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Can lead to frustration within the design team&lt;/strong&gt; as they are asked to
+redesign elements during the production process that they thought were
+already signed&amp;nbsp;off.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Potentially leads to uncertainty with the client&lt;/strong&gt; if &amp;#8216;signed off&amp;#8217; designs
+are presented again for sign off with changes that were not previously&amp;nbsp;foreseen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="how-to-use-this-checklist"&gt;
+&lt;h2&gt;How to use this&amp;nbsp;checklist&lt;/h2&gt;
+&lt;p&gt;Next time you see a software project being discussed just via flat designs, let
+your alarm bells ring. Open up conversation about the features on this list to
+break down the isolation that the design team is operating&amp;nbsp;in.&lt;/p&gt;
+&lt;div class="section" id="for-developers"&gt;
+&lt;h3&gt;For&amp;nbsp;Developers&lt;/h3&gt;
+&lt;p&gt;This basic list can start a journey of specification exploration. Start to ask
+questions about all these features before you agree on a specification or
+timeline since some of these items can become heavy or project&amp;nbsp;effecting.&lt;/p&gt;
+&lt;p&gt;This list is very back-end focused, but hopefully can be helpful for
+front-enders&amp;nbsp;too.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="for-website-owners"&gt;
+&lt;h3&gt;For Website&amp;nbsp;owners&lt;/h3&gt;
+&lt;p&gt;If you&amp;#8217;re being asked to sign off a project on flat designs alone, then it
+might be beneficial to check that the team you&amp;#8217;re working with have these
+aspects of the development on their radar. They might not have the answer to
+them yet, but should have a plan to find&amp;nbsp;them.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="for-designers"&gt;
+&lt;h3&gt;For&amp;nbsp;Designers&lt;/h3&gt;
+&lt;p&gt;You are often stuck in the middle of the process. Continue to involve your
+development team, they will be able to point out things that will require more
+effort to build before your client signs off the visuals, saving the project
+work in the long&amp;nbsp;term.&lt;/p&gt;
+&lt;p&gt;You can help to ensure you get good value feedback by asking them questions
+about items on this checklist - ensure they&amp;#8217;re not lulled into a false sense of
+&amp;#8220;it&amp;#8217;ll be easy&amp;#8221; by your fantastic design&amp;nbsp;work!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-checklist"&gt;
+&lt;h2&gt;The&amp;nbsp;Checklist&lt;/h2&gt;
+&lt;p&gt;The following details are often missing from flat web designs, but should be
+provided in a full&amp;nbsp;specification.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Page titles&lt;/strong&gt; - Standard and often missed by designers that use a generic
+image of a web browser frame to wrap their designs. Loved by content managers
+and search engines. Do they have a format and can be auto-generated? Does the
+content database need an extra&amp;nbsp;field?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hidden &lt;span class="caps"&gt;HTML&lt;/span&gt; data&lt;/strong&gt; - What about all the data in the &lt;span class="caps"&gt;HTML&lt;/span&gt; &lt;cite&gt;&amp;lt;head&amp;gt;&lt;/cite&gt;? Meta
+description, icon, Facebook data? Also for each image what will be the &lt;cite&gt;&amp;lt;img&amp;gt;
+alt&lt;/cite&gt; tag?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;URLs&lt;/strong&gt; - Also missed by designers when using generic browser frames, what
+are the URLs of each page being shown? Remember to check the URLs of pages
+that have&amp;nbsp;pagination.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data field requirements&lt;/strong&gt; - Designs often show the &amp;#8216;best case&amp;#8217; for content,
+but ensuring good data is entering the database is essential for a successful
+web project. What are the limits - shortest names?  Longest ones?  Are spaces
+allowed? Should content be trimmed? Emails should be validated, but on what
+level? Semantically, or with a request to a &lt;span class="caps"&gt;DNS&lt;/span&gt; or mail&amp;nbsp;server?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Form fields, validation and error messages&lt;/strong&gt; - If you&amp;#8217;re looking at a
+design that shows a web form, are there are error messages in the design?
+Expanding on the requirements for the data above, what will happen to the
+form when invalid data is entered? How will fields be flagged for errors?
+Which data elements will be sent back to the form and which will be cleaned
+out? Are there any fields (like address) that need to be&amp;nbsp;localised?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;User sign up requirements&lt;/strong&gt; - If the site will be accepting registrations,
+what will users need to provide to register? Email address? User name (how
+long)? Are there any blocked words in user names (like &amp;#8216;admin&amp;#8217;, the project
+brand name or profanities)? Password (how long)? Are there any password
+strength requirements? How will users reset their&amp;nbsp;passwords?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Transactional emails&lt;/strong&gt; - What emails will need to be sent by the system?
+What is their content and design? Can users manage these&amp;nbsp;notifications?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Security&lt;/strong&gt; - Will the site have any functions that will protect the data of
+its users? For example, will the user login page throttle access on multiple
+incorrect passwords? Will there be &amp;#8216;https&amp;#8217;&amp;nbsp;required?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Private data&lt;/strong&gt; - Since flat designs will show the public end user view of a
+project, what data is hidden from the user but essential for the project?
+Latest login dates? Number of logins? &lt;span class="caps"&gt;IP&lt;/span&gt; address of last visit or
+registration? Banned, active, subscriber flags? Active or dormant flags on&amp;nbsp;content?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Click and hover behaviours&lt;/strong&gt; - What will happen when elements like links
+are hovered? Are there any menus functions that are hidden behind clicks? Are
+there any titles to be shown when the user hovers an&amp;nbsp;item?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Error pages&lt;/strong&gt; - What is the design for the 404 page? What about 503 and any
+other error pages? Will there need to be a holding page when the site is
+being updated and is&amp;nbsp;offline?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Analytics configuration&lt;/strong&gt; - How should the analytics be configured to track
+behaviours on the site? Is it required? Will a simple configuration suffice
+or will there need to be funnels and or events configured? Analytics can be
+complex enough to require as much work as the original build out of a
+project, so ensuring that the specification is defined and covers the
+business needs early is a&amp;nbsp;benefit.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Translation requirements&lt;/strong&gt; - Will any of the content in the designs require
+translation? This also effects the items mentioned above in the checklist.
+Remember that any image elements that have been prepared that contain text
+will need to be generated in each target language - will each of those
+translated texts fit within the&amp;nbsp;design?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="feedback-and-thoughts"&gt;
+&lt;h2&gt;Feedback and&amp;nbsp;thoughts&lt;/h2&gt;
+&lt;p&gt;I hope that the list above helps someone who&amp;#8217;s working through the design of a
+site. Any time that I&amp;#8217;ve worked on a project where developers and stakeholders
+have been involved in the design stages early on have always been&amp;nbsp;successful.&lt;/p&gt;
+&lt;p&gt;If there are items you think should be added you can contribute on &lt;a class="reference external" href="https://github.com/jamescooke/blog/blob/master/content/1403-spec-checklist.rst"&gt;GitHub&lt;/a&gt;,
+or mention them in the comments&amp;nbsp;below.&lt;/p&gt;
+&lt;p&gt;Thanks for&amp;nbsp;reading.&lt;/p&gt;
+&lt;/div&gt;
+</summary></entry><entry><title>Seinfeld method and coding</title><link href="http://jamescooke.info/seinfeld-method-and-coding.html" rel="alternate"></link><updated>2014-01-31T16:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2014-01-31:seinfeld-method-and-coding.html</id><summary type="html">&lt;p&gt;This presentation focuses on using the Seinfeld method &amp;#8220;Don&amp;#8217;t break the chain&amp;#8221;
 to get going with personal projects. Those could be all types of things from
 learning the piano, a new programming language or achieving a personal&amp;nbsp;goal.&lt;/p&gt;
 &lt;p&gt;I believe that the Seinfeld method can help break down some of the blockers
@@ -20,7 +138,9 @@ at their Tech&amp;nbsp;Thursday.&lt;/p&gt;
 &lt;p&gt;Read more on &lt;a class="reference external" href="http://lifehacker.com/281626/jerry-seinfelds-productivity-secret"&gt;Seinfeld Technique&lt;/a&gt; and
 &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Pomodoro_Technique"&gt;Pomodoro Technique&lt;/a&gt;. I&amp;#8217;m
 currently using &lt;a class="reference external" href="http://tomatoi.st/"&gt;tomatoist&lt;/a&gt; as my online pomodoro&amp;nbsp;timer.&lt;/p&gt;
-</summary></entry><entry><title>Python generators and yield</title><link href="http://jamescooke.info/python-generators-and-yield.html" rel="alternate"></link><updated>2013-12-14T16:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2013-12-14:python-generators-and-yield.html</id><summary type="html">&lt;p&gt;Last week in an interview for a Django developer job, I was&amp;nbsp;asked:&lt;/p&gt;
+</summary></entry><entry><title>Python generators and yield</title><link href="http://jamescooke.info/python-generators-and-yield.html" rel="alternate"></link><updated>2013-12-14T16:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2013-12-14:python-generators-and-yield.html</id><summary type="html">&lt;div class="section" id="it-started-with-an-interview"&gt;
+&lt;h2&gt;It started with an&amp;nbsp;interview&lt;/h2&gt;
+&lt;p&gt;Last week in an interview for a Django developer job, I was&amp;nbsp;asked:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;thing&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;xrange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;!--  --&gt;
@@ -32,6 +152,7 @@ the list-comprehension-like-construction, I didn&amp;#8217;t know the exact type
 &lt;p&gt;The answer is a &lt;strong&gt;generator&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;This post shows some of the functionalities of generators and how they can
 be used in Python control&amp;nbsp;flow.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class="section" id="generator-expressions"&gt;
 &lt;h2&gt;Generator&amp;nbsp;expressions&lt;/h2&gt;
 &lt;p&gt;Generators can be created with generator expressions. A generator expression is
@@ -178,13 +299,16 @@ with &lt;cite&gt;next&lt;/cite&gt;, but in 4 it&amp;#8217;s tested using a list&
 &lt;p&gt;That&amp;#8217;s all - have fun with&amp;nbsp;generators!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="python"></category></entry><entry><title>Git: To squash or not to squash?</title><link href="http://jamescooke.info/git-to-squash-or-not-to-squash.html" rel="alternate"></link><updated>2013-11-19T11:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2013-11-19:git-to-squash-or-not-to-squash.html</id><summary type="html">&lt;p&gt;Over the weekend I spotted a tweet from &lt;a class="reference external" href="http://oli.me.uk/"&gt;Oliver&lt;/a&gt;&amp;#8230;&lt;/p&gt;
+</summary><category term="python"></category></entry><entry><title>Git: To squash or not to squash?</title><link href="http://jamescooke.info/git-to-squash-or-not-to-squash.html" rel="alternate"></link><updated>2013-11-19T11:00:00+00:00</updated><author><name>James</name></author><id>tag:jamescooke.info,2013-11-19:git-to-squash-or-not-to-squash.html</id><summary type="html">&lt;div class="section" id="it-started-with-a-tweet"&gt;
+&lt;h2&gt;It started with a&amp;nbsp;Tweet&lt;/h2&gt;
+&lt;p&gt;Over the weekend I spotted a tweet from &lt;a class="reference external" href="http://oli.me.uk/"&gt;Oliver&lt;/a&gt;&amp;#8230;&lt;/p&gt;
 &lt;blockquote class="twitter-tweet" lang="en"&gt;&lt;p&gt;To squash features into develop, or not to squash features into&amp;nbsp;develop?&lt;/p&gt;&amp;mdash; Oliver Caldwell (@OliverCaldwell) &lt;a href="https://twitter.com/OliverCaldwell/statuses/401299558887485440"&gt;November 15, 2013&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;p&gt;And I jumped straight in&amp;nbsp;with&amp;#8230;&lt;/p&gt;
 &lt;blockquote class="twitter-tweet" data-conversation="none" lang="en"&gt;&lt;p&gt;&lt;a href="https://twitter.com/OliverCaldwell"&gt;@OliverCaldwell&lt;/a&gt; Squash, but keep detailed commit messages. Unless you have a particular use-case / reason not&amp;nbsp;to.&lt;/p&gt;&amp;mdash; James Cooke (@jamesfublo) &lt;a href="https://twitter.com/jamesfublo/statuses/402123985791369216"&gt;November 17, 2013&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;p&gt;Then, as part of our following &lt;a class="reference external" href="https://twitter.com/OliverCaldwell/statuses/401299558887485440"&gt;conversation&lt;/a&gt;, I drew a&amp;nbsp;picture:&lt;/p&gt;
 &lt;blockquote class="twitter-tweet" data-conversation="none" lang="en"&gt;&lt;p&gt;&lt;a href="https://twitter.com/OliverCaldwell"&gt;@OliverCaldwell&lt;/a&gt; This is how I see it. Better to keep the direct route rather than the &amp;#8220;how we got here&amp;#8221;. &lt;a href="http://t.co/X5FZQ1euoU"&gt;pic.twitter.com/X5FZQ1euoU&lt;/a&gt;&lt;/p&gt;&amp;mdash; James Cooke (@jamesfublo) &lt;a href="https://twitter.com/jamesfublo/statuses/402407321265274881"&gt;November 18, 2013&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;p&gt;But&amp;#8230;&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class="section" id="it-s-about-more-than-just-squashing"&gt;
 &lt;h2&gt;It&amp;#8217;s about more than just&amp;nbsp;squashing&lt;/h2&gt;
 &lt;p&gt;What I realised while writing this post and experimenting with &lt;cite&gt;git&lt;/cite&gt; is that
